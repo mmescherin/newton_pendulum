@@ -1,0 +1,100 @@
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  width: 600px;
+  height: 400px;
+}
+.frame > div {
+  border: solid 2px white;
+  width: 50%;
+  height: 50%;
+  border-radius: 15% 15% 0% 0% / 22.5%;
+}
+
+.frame > div > :first-child {
+  height: 70%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.frame > div > :nth-child(2) {
+  height: 10%;
+  box-sizing: border-box;
+}
+.frame > div > :last-child {
+  background-color: white;
+  height: 20%;
+  box-sizing: border-box;
+}
+.frame > div > :first-child > div {
+  box-sizing: border-box;
+  width: 15%;
+  display: flex;
+  flex-flow: column-reverse;
+  align-items: center;
+}
+.frame > div > :first-child > div > :first-child {
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: white;
+  border-radius: 50%;
+}
+.frame > div > :first-child > div > :nth-child(2) {
+  background-color: white;
+  width: 5%;
+  flex-grow: 1;
+}
+
+.frame > div > :first-child > :first-child {
+  transform-origin: 50% 0% 0;
+  transform: rotate(60deg);
+  animation: pend-left 0.8s infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in;
+}
+
+.frame > div > :first-child > :last-child {
+  transform-origin: 50% 0% 0;
+  transform: rotate(60deg);
+  animation: pend-right 0.8s infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+@keyframes pend-left {
+  from {
+    transform: rotate(60deg)
+  }
+  50% {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(0deg)
+  }
+}
+
+@keyframes pend-right {
+  from {
+    transform: rotate(0deg)
+  }
+  50% {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(-60deg);
+  }
+}
+
+.frame {
+  transition: transform 15s;
+}
+
+.frame:hover {
+  transform: rotate(3600deg) scale(0.25, 0.25);
+}
+
+
